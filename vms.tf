@@ -1,10 +1,19 @@
 resource "vmworkstation_vm" "puppet_freeipa" {
   sourceid     = var.template_id
   denomination = "puppet_freeipa_v"
-  description  = "Puppet Master + FreeIPA Server"
+  description  = "Puppet Master (FreeIPA moved to dedicated Rocky Linux VM)"
   path         = "D:\\puppet_freeipa_v\\puppet_freeipa_v.vmx"
   processors   = 2
   memory       = 3072
+}
+
+resource "vmworkstation_vm" "freeipa_server" {
+  sourceid     = var.rocky_template_id
+  denomination = "freeipa_server_v"
+  description  = "FreeIPA Server (Rocky Linux)"
+  path         = "D:\\freeipa_server_v\\freeipa_server_v.vmx"
+  processors   = 2
+  memory       = 2048
 }
 
 resource "vmworkstation_vm" "elk_server" {

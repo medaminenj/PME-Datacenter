@@ -15,6 +15,12 @@ variable "template_id" {
   default     = "HG0KIB8T9MLAUBMQF6GN697SNI660EJD"
 }
 
+variable "rocky_template_id" {
+  description = "ID of the freeipa-template VM (Rocky Linux, used for FreeIPA server)"
+  type        = string
+  default     = "NVRAINUN0VA64S8A8QS1T5VDJKQONN4R"
+}
+
 variable "vm_base_path" {
   description = "Base path where VMs will be stored"
   type        = string

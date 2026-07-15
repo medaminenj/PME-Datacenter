@@ -20,6 +20,10 @@ node 'puppet-freeipa.pme.local' {
   include zabbix_agent
 }
 
+node 'freeipa-server.pme.local' {
+  include zabbix_agent
+}
+
 node default {
   notify { 'No specific role configured for this node': }
 }

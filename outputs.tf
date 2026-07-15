@@ -17,3 +17,7 @@ output "web_server_id" {
 output "db_server_id" {
   value = vmworkstation_vm.db_server.id
 }
+
+output "freeipa_server_id" {
+  value = vmworkstation_vm.freeipa_server.id
+}
