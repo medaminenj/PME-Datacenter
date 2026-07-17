@@ -13,7 +13,7 @@ resource "vmworkstation_vm" "freeipa_server" {
   description  = "FreeIPA Server (Rocky Linux)"
   path         = "D:\\freeipa_server_v\\freeipa_server_v.vmx"
   processors   = 2
-  memory       = 2048
+  memory       = 4096
 }
 
 resource "vmworkstation_vm" "elk_server" {
