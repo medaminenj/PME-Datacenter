@@ -8,13 +8,13 @@ class zabbix_agent {
       # Add the official Zabbix repository (Ubuntu/Debian)
       exec { 'add-zabbix-repo':
         command => 'wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-1+ubuntu22.04_all.deb -O /tmp/zabbix-release.deb && dpkg -i /tmp/zabbix-release.deb',
-        path    => ['/usr/bin', '/bin'],
+        path    => ['/usr/local/sbin', '/usr/sbin', '/sbin', '/usr/bin', '/bin'],
         creates => '/etc/apt/sources.list.d/zabbix.list',
       }
 
       exec { 'zabbix-apt-update':
         command     => 'apt-get update',
-        path        => ['/usr/bin', '/bin'],
+        path        => ['/usr/local/sbin', '/usr/sbin', '/sbin', '/usr/bin', '/bin'],
         subscribe   => Exec['add-zabbix-repo'],
         refreshonly => true,
       }
@@ -29,13 +29,13 @@ class zabbix_agent {
       # Add the official Zabbix repository (Rocky/RHEL/AlmaLinux/CentOS)
       exec { 'add-zabbix-repo':
         command => 'rpm -Uvh https://repo.zabbix.com/zabbix/7.0/rhel/9/x86_64/zabbix-release-7.0-1.el9.noarch.rpm',
-        path    => ['/usr/bin', '/bin'],
+        path    => ['/usr/local/sbin', '/usr/sbin', '/sbin', '/usr/bin', '/bin'],
         creates => '/etc/yum.repos.d/zabbix.repo',
       }
 
       exec { 'zabbix-dnf-update':
         command     => 'dnf clean all && dnf makecache',
-        path        => ['/usr/bin', '/bin'],
+        path        => ['/usr/local/sbin', '/usr/sbin', '/sbin', '/usr/bin', '/bin'],
         subscribe   => Exec['add-zabbix-repo'],
         refreshonly => true,
       }
