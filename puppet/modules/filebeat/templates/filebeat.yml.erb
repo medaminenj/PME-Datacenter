@@ -1,0 +1,12 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/*.log
+      - /var/log/syslog
+      - /var/log/auth.log
+
+output.logstash:
+  hosts: ["192.168.190.11:5044"]
+
+logging.level: info
