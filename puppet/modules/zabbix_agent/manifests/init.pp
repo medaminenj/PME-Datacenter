@@ -1,5 +1,7 @@
 class zabbix_agent {
 
+  $hostname = $facts['networking']['hostname']
+
   case $facts['os']['family'] {
 
     'Debian': {
